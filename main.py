@@ -1,6 +1,7 @@
 from stats import count_words
 from stats import count_characters
 from stats import sort_dict
+import sys
 
 def get_book_text(path):
     with open(path) as book:
@@ -12,7 +13,11 @@ def print_counts(dict_list):
             print(f"{item['char']}: {item['count']}")
 
 def main ():
-    book_path="books/frankenstein.txt"
+    if len(sys.argv) == 2:
+        book_path = sys.argv[1]
+    else:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
     text = get_book_text(book_path)
     num_words = count_words(text)
     char_dic = count_characters(text)
