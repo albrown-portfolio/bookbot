@@ -15,3 +15,12 @@ def count_characters(book):
         else:
             char_counts[char] = 1
     return char_counts
+
+def sort_dict(dict):
+    # create a list of dictionaries
+    list =[]
+    for char, count in dict.items():
+        list.append({"char":char, "count":count})
+    #sort the list of dictionaries 
+    list.sort(reverse=True, key=lambda x: x['count'])   
+    return list
